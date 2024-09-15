@@ -6,7 +6,7 @@ from config import settings
 
 engine = create_async_engine(
     settings.DATABASE_URL_ASYNC_PSYCOPG,
-    # echo = True
+    pool_size = 5
 )
 
 
