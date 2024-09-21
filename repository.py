@@ -26,6 +26,9 @@ class Repository:
                 date = User(**info_qr_dict)
                 session.add(date)
                 await session.commit()
+            except Exception as e:
+                await session.rollback()
+                raise e
                 return {f"your unique_key = {info_qr_dict["unique_key"]}, your will get a qr_code by this unique_key"}
             finally:
                 await session.close()
