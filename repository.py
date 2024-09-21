@@ -9,7 +9,7 @@ from sqlalchemy import select, text
 
 class Repository:
     
-    @classmethod
+    # @classmethod
     # async def create_qr(cls, info_qr: Qr_code ):
     #     async with session_async() as session:
     #         info_qr_dict = info_qr.model_dump()
