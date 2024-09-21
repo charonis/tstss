@@ -10,13 +10,25 @@ from sqlalchemy import select, text
 class Repository:
     
     @classmethod
-    async def create_qr(cls, info_qr: Qr_code ):
+    # async def create_qr(cls, info_qr: Qr_code ):
+    #     async with session_async() as session:
+    #         info_qr_dict = info_qr.model_dump()
+    #         date = User(**info_qr_dict)
+    #         session.add(date)
+    #         await session.commit()
+    #         return {f"your unique_key = {info_qr_dict["unique_key"]}, your will get a qr_code by this unique_key"}
+    
+    @classmethod
+    async def create_qr(cls, info_qr: Qr_code):
         async with session_async() as session:
-            info_qr_dict = info_qr.model_dump()
-            date = User(**info_qr_dict)
-            session.add(date)
-            await session.commit()
-            return {f"your unique_key = {info_qr_dict["unique_key"]}, your will get a qr_code by this unique_key"}
+            try:
+                info_qr_dict = info_qr.model_dump()
+                date = User(**info_qr_dict)
+                session.add(date)
+                await session.commit()
+                return {f"your unique_key = {info_qr_dict["unique_key"]}, your will get a qr_code by this unique_key"}
+            finally:
+                await session.close()
         
     @classmethod
     async def delete_qr(cls, name:str):
