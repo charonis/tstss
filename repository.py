@@ -1,12 +1,8 @@
-from datebase import session_async, engine
 from shemas import Qr_code
-from models import User
 from aiobotocore.session import get_session
 from contextlib import asynccontextmanager
 from config import settings
 from utils import qr
-from sqlalchemy import select, text
-import asyncio
 
 # class Repository:
     
