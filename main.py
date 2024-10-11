@@ -9,7 +9,7 @@ app = FastAPI(title="qr-code")
 
 
 origins = [
-    "https://front-rho-gules.vercel.app/",
+    "https://front-rho-gules.vercel.app",
     "http://localhost:5173",
     "https://localhost:5173",
     
