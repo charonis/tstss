@@ -9,7 +9,7 @@ def create_unique_key():
 
 
 def qr(name:str):
-    data = f"https://qr-code-front-three.vercel.app/page/{name}"
+    data = f"https://front-rho-gules.vercel.app/page/{name}"
     img = qrcode.make(data)
     buffer = BytesIO()
     img.save(buffer, format='PNG')
